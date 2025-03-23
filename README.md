@@ -24,3 +24,13 @@ Look for and expand the Android 15 (VanillaIceCream) entry, then make sure the f
 Android SDK Platform 35
 Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image
 ```
+
+Configure the ANDROID_HOME environment variable
+
+```
+Open the Windows Control Panel.
+Click on User Accounts, then click User Accounts again
+Click on Change my environment variables
+Click on New... to create a new ANDROID_HOME user variable that points to the path to your Android SDK:
+My path C:\Users\hp\AppData\Local\Android\Sdk
+```
