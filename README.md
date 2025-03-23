@@ -34,3 +34,9 @@ Click on Change my environment variables
 Click on New... to create a new ANDROID_HOME user variable that points to the path to your Android SDK:
 My path C:\Users\hp\AppData\Local\Android\Sdk
 ```
+
+The default location for this folder is:
+
+```
+C:\Users\hp\AppData\Local\Android\Sdk\platform-tools
+```
