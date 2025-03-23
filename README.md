@@ -13,3 +13,14 @@ choco install -y nodejs-lts microsoft-openjdk17
 node -v
 java --version
 ```
+
+Install Android Studio Download and install Android Studio
+
+To do that, open Android Studio, click on "More Actions" button and select "SDK Manager". 
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. 
+Look for and expand the Android 15 (VanillaIceCream) entry, then make sure the following items are checked:
+
+```
+Android SDK Platform 35
+Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image
+```
