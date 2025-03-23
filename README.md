@@ -57,3 +57,19 @@ Command run app
 - npm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
 - npm run web
 ```
+
+Run App Hotkey
+
+```
+› Using Expo Go
+› Press s │ switch to development build
+
+› Press a │ open Android
+› Press w │ open web
+
+› Press j │ open debugger
+› Press r │ reload app
+› Press m │ toggle menu
+› shift+m │ more tools
+› Press o │ open project code in your edito
+```
