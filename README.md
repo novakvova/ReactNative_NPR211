@@ -73,3 +73,14 @@ Run App Hotkey
 › shift+m │ more tools
 › Press o │ open project code in your edito
 ```
+
+Command list. Потрібно запускати в одні мережі вайфа. Тоді усе буде працювати супер.
+Можна роздати інтернет з телефону і відразу конектитися на телефон також працює.
+```
+npm install -g expo-cli
+
+rm -rf node_modules .expo .expo-shared package-lock.json
+npm install
+npm run android
+
+```
