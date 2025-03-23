@@ -40,3 +40,11 @@ The default location for this folder is:
 ```
 C:\Users\hp\AppData\Local\Android\Sdk\platform-tools
 ```
+
+create a new AVD and Install HAXM
+
+Create new app react native expo
+
+```
+npx create-expo-app@latest
+```
