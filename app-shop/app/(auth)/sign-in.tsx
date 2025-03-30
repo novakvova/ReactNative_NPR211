@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, ScrollVie
 import { router } from 'expo-router'
 
 
-const SignupScreen = () => {
+const SigninScreen = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
@@ -30,7 +30,7 @@ const SignupScreen = () => {
             minHeight: Dimensions.get('window').height - 100,
           }}>
         {/*<View className="flex-1 justify-center items-center bg-white px-6">*/}
-          <Text className="text-3xl font-bold mb-6 text-black">Реєстрація</Text>
+          <Text className="text-3xl font-bold mb-6 text-black">Вхід</Text>
 
 
           {isSuccess ?
@@ -40,17 +40,6 @@ const SignupScreen = () => {
           }
 
 
-          <View className={"mb-4"}>
-            <Text className={"text-base text-black-500 font-pmedium"}>Ім'я</Text>
-            <View className={"w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row items-center"}>
-              <TextInput
-                placeholder="Ваше ім'я"
-                value={form.name}
-                onChangeText={(text) => handleChange('name', text)}
-                className="flex-1 text-black font-psemibold text-base"
-              />
-            </View>
-          </View>
 
           <View className={"mb-4"}>
             <Text className={"text-base text-black-500 font-pmedium"}>Електронна пошта</Text>
@@ -84,16 +73,16 @@ const SignupScreen = () => {
             className="w-full bg-blue-500 p-4 rounded-lg mb-4"
           >
             <Text className="text-white text-center text-lg font-bold">
-              Реєстрація
+              Вхід
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={()=> {router.replace('/sign-in')}}
+            onPress={()=> {router.replace('/sign-up')}}
             className="w-full bg-green-500 p-4 rounded-lg"
           >
             <Text className="text-white text-center text-lg font-bold">
-              Вхід
+              Реєстрація
             </Text>
           </TouchableOpacity>
         </View>
@@ -103,4 +92,4 @@ const SignupScreen = () => {
   )
 }
 
-export default SignupScreen
+export default SigninScreen
