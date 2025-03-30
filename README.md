@@ -46,7 +46,7 @@ create a new AVD and Install HAXM
 Create new app react native expo
 
 ```
-npx create-expo-app@latest
+npx create-expo-app@latest app-shop
 ```
 
 Command run app
