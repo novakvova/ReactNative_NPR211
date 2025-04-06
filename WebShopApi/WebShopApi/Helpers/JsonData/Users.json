@@ -1,0 +1,26 @@
+[
+    {
+        "Email": "ivanko@gmail.com",
+        "PhoneNumber": "+380501234567",
+        "Firstname": "Іван",
+        "Lastname": "Коваленко",
+        "Role": "Admin",
+        "Image": "https://randomuser.me/api/portraits/men/10.jpg"
+    },
+    {
+        "Email": "oksana.p@example.com",
+        "PhoneNumber": "+380671112233",
+        "Firstname": "Оксана",
+        "Lastname": "Петренко",
+        "Role": "User",
+        "Image": "https://randomuser.me/api/portraits/women/20.jpg"
+    },
+    {
+        "Email": "andriy.sydorenko@example.com",
+        "PhoneNumber": "+380631234567",
+        "Firstname": "Андрій",
+        "Lastname": "Сидоренко",
+        "Role": "User",
+        "Image": "https://randomuser.me/api/portraits/men/30.jpg"
+    }
+]
