@@ -5,7 +5,8 @@
         "Firstname": "Іван",
         "Lastname": "Коваленко",
         "Role": "Admin",
-        "Image": "https://randomuser.me/api/portraits/men/10.jpg"
+        "Image": "https://picsum.photos/800/800",
+        "Password": "Qwerty1-"
     },
     {
         "Email": "oksana.p@example.com",
@@ -13,7 +14,8 @@
         "Firstname": "Оксана",
         "Lastname": "Петренко",
         "Role": "User",
-        "Image": "https://randomuser.me/api/portraits/women/20.jpg"
+        "Image": "https://picsum.photos/800/800",
+        "Password": "123456"
     },
     {
         "Email": "andriy.sydorenko@example.com",
@@ -21,6 +23,7 @@
         "Firstname": "Андрій",
         "Lastname": "Сидоренко",
         "Role": "User",
-        "Image": "https://randomuser.me/api/portraits/men/30.jpg"
+        "Image": "https://picsum.photos/800/800",
+        "Password": "123456"
     }
 ]
