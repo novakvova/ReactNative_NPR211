@@ -25,6 +25,7 @@ builder.Services.AddIdentity<UserEntity, RoleEntity>(options =>
 }).AddEntityFrameworkStores<WebShopDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
