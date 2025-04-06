@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using WebShopApi.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<WebShopDbContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("WebShopApiConnection")));
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
