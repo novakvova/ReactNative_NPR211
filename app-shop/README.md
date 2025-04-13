@@ -120,3 +120,12 @@ npx prettier --write .
   "editor.formatOnSave": true
 }
 ```
+
+## Install Redux and Security
+```
+npx expo install expo-secure-store
+
+npm i react-redux
+npm i @reduxjs/toolkit
+npm i jwt-decode
+```
