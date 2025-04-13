@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, ScrollView, Dimensions } from 'react-native'
 import { router } from 'expo-router'
+import { useLoginMutation } from '@/services/accountService'
 
 
 const SigninScreen = () => {
-  const [form, setForm] = useState({ name: '', email: '', password: '' })
+  const [form, setForm] = useState({ email: '', password: '' })
+
+  const [login, isLoading] = useLoginMutation();
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
@@ -12,12 +15,18 @@ const SigninScreen = () => {
     setForm((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSignup = () => {
-    if (!form.name || !form.email || !form.password) {
+  const handleSignup = async () => {
+    if (!form.email || !form.password) {
       Alert.alert('Error', 'All fields are required!')
       return
     }
-    setIsSuccess(true)
+    try {
+      const result = await login(form).unwrap();
+      console.log("login result", result);
+    }catch (error) {
+      console.log("Login error: ", error);
+    }
+    // setIsSuccess(true)
     //Alert.alert('Success', `Welcome, ${form.name}!`);
   }
 
