@@ -1,0 +1,1 @@
+export const BASE_URL = "https://npr211api.itstep.click";
