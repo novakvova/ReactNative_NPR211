@@ -67,7 +67,7 @@ const SigninScreen = () => {
             >
               <Text className="text-xl">❌</Text>
               <View className="flex-1">
-                <Text className="font-semibold text-base mb-1">Помилка</Text>
+                {/*<Text className="font-semibold text-base mb-1">Помилка</Text>*/}
                 <Text className="text-sm">Дані вказано невірно. Перевірте, будь ласка, і спробуйте ще раз.</Text>
               </View>
             </View> : null
