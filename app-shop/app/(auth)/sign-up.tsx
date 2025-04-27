@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, ScrollView, Dimensions } from 'react-native'
+import { View, Image, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, ScrollView, Dimensions } from 'react-native'
 import { router } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
 import Ionicons from '@expo/vector-icons/Ionicons'
@@ -30,6 +30,15 @@ const SignupScreen = () => {
     if(!permissionResult.granted) {
       alert("Для вибору фото дай доступ до файлів");
       return;
+    }
+    const result =  await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1,1],
+      quality: 1,
+    });
+    if(!result.canceled) {
+      setImage(result.assets[0].uri);
     }
   }
 
@@ -89,7 +98,7 @@ const SignupScreen = () => {
           </View>
 
 
-          <View className={"mb-6"}>
+          <View className={"mb-2"}>
             <Text className={"text-base text-black-500 font-pmedium"}>Пароль</Text>
             <View className={"w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row items-center"}>
               <TextInput
@@ -102,9 +111,23 @@ const SignupScreen = () => {
             </View>
           </View>
 
+          <View className={"space-y-2 w-full"}>
+            <TouchableOpacity onPress={pickImage} className={"mt-4 p-4 bg-blue-400 rounded-xl"}>
+              <View className="flex flex-row items-center justify-center gap-2">
+                <Text className="text-center text-white font-psemibold">Pick an Image</Text>
+                <Ionicons name="image" size={24} color="white" />
+              </View>
+            </TouchableOpacity>
+            {image && (
+              <View className="w-full flex justify-center items-center">
+                <Image source={{ uri: image }} className="w-40 h-40 rounded-full" />
+              </View>
+            )}
+          </View>
+
           <TouchableOpacity
             onPress={handleSignup}
-            className="w-full bg-blue-500 p-4 rounded-lg mb-4"
+            className="mt-7 w-full bg-blue-500 p-4 rounded-lg mb-4"
           >
             <Text className="text-white text-center text-lg font-bold">
               Реєстрація
