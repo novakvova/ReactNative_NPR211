@@ -3,6 +3,9 @@ import { View, Image, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, Sc
 import { router } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import { getFileFromUriAsync } from '@/utils/getFileFromUriAsync'
+import { useRegisterMutation } from '@/services/accountService'
+import LoadingOverlay from '@/components/LoadingOverlay'
 
 
 const SignupScreen = () => {
@@ -10,16 +13,36 @@ const SignupScreen = () => {
 
   const [image, setImage] = useState<string | null>(null);
 
-  const [isSuccess, setIsSuccess] = useState<boolean>(false)
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
+  const [register, {isLoading}] = useRegisterMutation();
 
   const handleChange = (field: any, value: any) => {
     setForm((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (!form.firstName || !form.email || !form.password) {
       Alert.alert('Error', 'All fields are required!')
       return
+    }
+    try {
+      if(image) {
+        const file = await getFileFromUriAsync(image);
+
+        const res = await register({
+          ...form,
+          //@ts-ignore
+          image: file
+        }).unwrap();
+
+        alert('Реєстрація успішна');
+        router.replace("/sign-in");
+      }
+    }
+    catch (error) {
+      console.log("--Error register---",error);
+      alert('Error');
     }
     setIsSuccess(true)
     //Alert.alert('Success', `Welcome, ${form.name}!`);
@@ -45,6 +68,8 @@ const SignupScreen = () => {
   return (
     <SafeAreaView className={"h-full"}>
       <ScrollView>
+
+        <LoadingOverlay visible={isLoading} />
         <View
           className="w-full flex justify-center items-center h-full px-4 my-6"
           style={{
@@ -66,7 +91,7 @@ const SignupScreen = () => {
               <TextInput
                 placeholder="Ваше прізвище"
                 value={form.lastName}
-                onChangeText={(text) => handleChange('name', text)}
+                onChangeText={(text) => handleChange('lastName', text)}
                 className="flex-1 text-black font-psemibold text-base"
               />
             </View>
@@ -78,7 +103,7 @@ const SignupScreen = () => {
               <TextInput
                 placeholder="Ваше ім'я"
                 value={form.firstName}
-                onChangeText={(text) => handleChange('name', text)}
+                onChangeText={(text) => handleChange('firstName', text)}
                 className="flex-1 text-black font-psemibold text-base"
               />
             </View>

@@ -7,3 +7,11 @@ export interface ILoginResponse {
   token: string;
 }
 
+export interface IRegister {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  image: File | null
+}
+
