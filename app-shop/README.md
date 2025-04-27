@@ -131,3 +131,8 @@ npm i jwt-decode
 
 npx expo start --clear
 ```
+
+## Install Image Picker
+```
+npx expo install expo-image-picker
+```

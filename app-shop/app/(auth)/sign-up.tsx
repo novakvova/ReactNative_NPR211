@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, Alert, SafeAreaView, ScrollView, Dimensions } from 'react-native'
 import { router } from 'expo-router'
+import * as ImagePicker from 'expo-image-picker'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 
 const SignupScreen = () => {
-  const [form, setForm] = useState({ name: '', email: '', password: '' })
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', password: '' });
+
+  const [image, setImage] = useState<string | null>(null);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
@@ -13,12 +17,20 @@ const SignupScreen = () => {
   }
 
   const handleSignup = () => {
-    if (!form.name || !form.email || !form.password) {
+    if (!form.firstName || !form.email || !form.password) {
       Alert.alert('Error', 'All fields are required!')
       return
     }
     setIsSuccess(true)
     //Alert.alert('Success', `Welcome, ${form.name}!`);
+  }
+
+  const pickImage = async () => {
+    const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if(!permissionResult.granted) {
+      alert("Для вибору фото дай доступ до файлів");
+      return;
+    }
   }
 
   return (
@@ -39,13 +51,24 @@ const SignupScreen = () => {
             </Text> : null
           }
 
+          <View className={"mb-4"}>
+            <Text className={"text-base text-black-500 font-pmedium"}>Прізвище</Text>
+            <View className={"w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row items-center"}>
+              <TextInput
+                placeholder="Ваше прізвище"
+                value={form.lastName}
+                onChangeText={(text) => handleChange('name', text)}
+                className="flex-1 text-black font-psemibold text-base"
+              />
+            </View>
+          </View>
 
           <View className={"mb-4"}>
             <Text className={"text-base text-black-500 font-pmedium"}>Ім'я</Text>
             <View className={"w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row items-center"}>
               <TextInput
                 placeholder="Ваше ім'я"
-                value={form.name}
+                value={form.firstName}
                 onChangeText={(text) => handleChange('name', text)}
                 className="flex-1 text-black font-psemibold text-base"
               />
