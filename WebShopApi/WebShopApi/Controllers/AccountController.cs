@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebShopApi.Abstract;
@@ -70,6 +71,28 @@ public class AccountController(UserManager<UserEntity> userManager,
         var token = await jwtTokenService.CreateTokenAsync(user);
 
         return Ok(new { token });
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Profile()
+    {
+        try
+        {
+            //Thread.Sleep(2000);
+            string userName = User.Claims.FirstOrDefault().Value;
+            var user = await userManager.FindByNameAsync(userName);
+            var model = mapper.Map<ProfileViewModel>(user);
+
+            return Ok(model);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(new
+            {
+                invalid = ex.Message
+            });
+        }
     }
 
 }

@@ -10,5 +10,8 @@ public class AccountMapper : Profile
     {
         CreateMap<RegisterViewModel, UserEntity>()
             .ForMember(x => x.UserName, opt => opt.MapFrom(x => x.Email));
+
+        CreateMap<UserEntity, ProfileViewModel>()
+            .ForMember(x => x.Photo, opt => opt.MapFrom(x => $"/images/{x.Image}"));
     }
 }
