@@ -11,27 +11,15 @@ const ProfileScreen = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const user = useAppSelector((state) => state.auth.user);
+  const token = useAppSelector((state) => state.auth.token);
 
-  const handleLogout = async () => {
-     await SecureStore.deleteItemAsync("token");
 
-    dispatch(logOut());
-    router.replace("/sign-in");
-  };
 
   return (
     <View style={styles.container}>
 
       <Text className="text-center mt-4 text-5xl font-pbold font-bold text-secondary">Категорії</Text>
-      {user ? (
-        <>
 
-
-        </>
-      ) : (
-        <Text>Завантаження даних...</Text>
-      )}
     </View>
   );
 };
