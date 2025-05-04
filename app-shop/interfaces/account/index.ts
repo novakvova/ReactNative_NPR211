@@ -15,3 +15,18 @@ export interface IRegister {
   image: File | null
 }
 
+export interface IUser {
+  id: number
+  firstName: string
+  lastName: string
+  email: string
+  photo: string
+  exp: number
+}
+
+//Повна інформація про користувача
+export interface IUserState {
+  user: IUser | null
+  token: string | null
+}
+

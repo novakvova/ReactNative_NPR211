@@ -7,6 +7,9 @@ import LoadingOverlay from '@/components/LoadingOverlay'
 import * as SecureStore from 'expo-secure-store';
 
 import { jwtDecode } from 'jwt-decode';
+import { useAppDispatch } from '@/store'
+import { setCredentials } from '@/store/slices/userSlice'
+import { IUser } from '@/interfaces/account'
 
 
 const SigninScreen = () => {
@@ -14,6 +17,8 @@ const SigninScreen = () => {
 
   const [login, {isLoading, error}] = useLoginMutation();
   //console.log("Error", error);
+
+  const dispatch = useAppDispatch();
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
@@ -30,20 +35,19 @@ const SigninScreen = () => {
       const result = await login(form).unwrap();
       const {token} = result;
       await SecureStore.setItemAsync('token', token);
-      //console.log("login result", token);
-    }catch (error: any) {
-      //alert(error.data.error);
+      var user = jwtDecode<IUser>(token);
+      dispatch(setCredentials({token: token,  user}));
+      router.replace('/profile');
+    } catch (error: any) {
       console.log("Login error: ", error);
     }
-    // setIsSuccess(true)
-    //Alert.alert('Success', `Welcome, ${form.name}!`);
   }
 
-  var authToken = SecureStore.getItem("token");
-  if(authToken) {
-    var userInfo = jwtDecode(authToken);
-    console.log("User info token: ", userInfo);
-  }
+  // var authToken = SecureStore.getItem("token");
+  // if(authToken) {
+  //   var userInfo = jwtDecode(authToken);
+  //   console.log("User info token: ", userInfo);
+  // }
 
   // console.log("SecureStore", SecureStore.getItem("token"));
 

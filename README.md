@@ -84,3 +84,13 @@ npm install
 npm run android
 
 ```
+
+
+Run Server App
+```
+sudo apt install dos2unix
+dos2unix docker_npr211.sh
+
+chmod +x docker_npr211.sh
+./docker_npr211.sh
+```
