@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebShopApi.Data.Entities;
 using WebShopApi.Data.Entities.Identity;
 
 namespace WebShopApi.Data
@@ -8,6 +9,8 @@ namespace WebShopApi.Data
     {
         public WebShopDbContext(DbContextOptions<WebShopDbContext> options)
             : base(options) { }
+
+        public DbSet<CategoryEntity> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
