@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Helpers\JsonData\Categories.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Helpers\JsonData\Users.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

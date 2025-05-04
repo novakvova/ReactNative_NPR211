@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "Технології",
+        "Image": "https://cit-program.com/wp-content/uploads/2021/09/when_innovation_invents_commentary_social.jpg",
+        "Description": "Категорія про новітні технології, ІТ та гаджети.",
+        "UserId": 1
+    },
+    {
+        "Name": "Освіта",
+        "Image": "https://library.vn.ua/assets/publilc/news/2020/vystavky/misteczka-osvita-v-ukraiini.jpg",
+        "Description": "Ресурси та матеріали для навчання, викладання та самоосвіти.",
+        "UserId": 2
+    },
+    {
+        "Name": "Мистецтво",
+        "Image": "https://obltehn.ck.ua/wp-content/uploads/2018/03/look.com_.ua-57035.jpg",
+        "Description": "Живопис, музика, театр, фотографія та інші форми мистецтва.",
+        "UserId": 1
+    },
+    {
+        "Name": "Здоров'я",
+        "Image": "https://www.bsmu.edu.ua/wp-content/uploads/2019/03/7080.jpg",
+        "Description": "Здоровий спосіб життя, спорт, харчування та психологія.",
+        "UserId": 3
+    }
+]
