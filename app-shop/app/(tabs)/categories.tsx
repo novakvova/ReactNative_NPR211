@@ -1,14 +1,11 @@
 import {View, Text, StyleSheet, FlatList} from "react-native";
-import {useRouter} from "expo-router";
-import {useAppDispatch, useAppSelector} from "@/store";
+import {useAppSelector} from "@/store";
 import {useGetCategoriesQuery} from "@/services/categoryService";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import CategoryCard from "@/components/category/CategoryCard";
 
 
 const CategoriesScreen = () => {
-  const dispatch = useAppDispatch();
-  const router = useRouter();
 
   const token = useAppSelector((state) => state.auth.token);
 

@@ -48,6 +48,17 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="create"
+        options={{
+          title: 'Додати',
+          tabBarIcon: ({ color }) => (
+            //@ts-ignore
+            <IconSymbol size={28} name="category.add" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
